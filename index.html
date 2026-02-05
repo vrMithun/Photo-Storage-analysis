@@ -1,0 +1,149 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Photo Storage Guide India</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600;700&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="bg-orb orb-1"></div>
+  <div class="bg-orb orb-2"></div>
+  <div class="bg-grid"></div>
+
+  <header class="hero">
+    <div class="hero-text">
+      <h1>Find the best way to store your photos.</h1>
+      <p class="lead">
+        Answer a short set of questions. We balance cost, access, privacy, and reliability
+        to recommend a specific storage platform and a clear storage strategy.
+      </p>
+      <div class="hero-actions">
+        <button class="primary" id="startBtn">Start the questionnaire</button>
+        <button class="ghost" id="resetBtn">Reset</button>
+      </div>
+    </div>
+    <div class="hero-card">
+      <div class="stat">
+        <span class="stat-label">Best for</span>
+        <span class="stat-value">Families</span>
+      </div>
+      <div class="stat">
+        <span class="stat-label">Focus</span>
+        <span class="stat-value">Cost + Safety</span>
+      </div>
+      <div class="stat">
+        <span class="stat-label">Output</span>
+        <span class="stat-value">Explainable plan</span>
+      </div>
+      <div class="mini-note">
+        Built from research on cloud vs local storage, privacy, and pricing complexity.
+      </div>
+    </div>
+  </header>
+
+  <main class="layout">
+    <section class="card" id="questionnaire">
+      <div class="card-header">
+        <h2>Questionnaire</h2>
+        <p>Choose the option that fits you best.</p>
+      </div>
+      <form id="questionForm"></form>
+    </section>
+
+    <section class="card result" id="resultCard">
+      <div class="card-header result-header">
+        <div>
+          <h2>Recommendation</h2>
+          <p>Based on your answers</p>
+        </div>
+        <button class="ghost mini" id="downloadBtn" style="display: none;">Download PDF</button>
+      </div>
+      <div class="result-main">
+        <div>
+          <div class="badge" id="primaryBadge">Complete the questionnaire</div>
+          <h3 id="primaryTitle">No recommendation yet</h3>
+          <p id="primarySummary">Answer the questions to see your best-fit plan and platform.</p>
+          <div class="pill-row" id="reasonPills"></div>
+        </div>
+        <div class="viz">
+          <canvas id="radar" width="260" height="260"></canvas>
+          <div class="viz-legend">
+            <span>Scores</span>
+            <div class="legend-row">
+              <span class="dot cloud"></span> Cloud
+              <span class="dot local"></span> Local
+              <span class="dot hybrid"></span> Hybrid
+              <span class="dot object"></span> Object
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="result-details">
+        <div>
+          <h4>Why this fits</h4>
+          <ul id="whyList"></ul>
+        </div>
+        <div>
+          <h4>Tradeoffs to know</h4>
+          <ul id="tradeoffList"></ul>
+        </div>
+        <div>
+          <h4>Storage strategy</h4>
+          <p id="nextStep"></p>
+          <div class="platform-box">
+            <h4>Recommended platform</h4>
+            <p id="platformPick"></p>
+          </div>
+        </div>
+        <div class="rejection-box">
+          <h4>Why not others?</h4>
+          <ul id="rejectionList"></ul>
+        </div>
+      </div>
+
+      <div class="plan-card" id="planDetails">
+        <div class="plan-grid">
+          <div class="plan-item">
+            <span class="label">Storage Tier</span>
+            <span class="value" id="tierValue">-</span>
+          </div>
+          <div class="plan-item">
+            <span class="label">Estimated Cost</span>
+            <span class="value" id="costValue">-</span>
+          </div>
+          <div class="plan-item">
+            <span class="label">Setup Complexity</span>
+            <span class="value" id="setupComplexity">-</span>
+          </div>
+          <div class="plan-item">
+            <span class="label">Reliability</span>
+            <span class="value" id="reliabilityValue">-</span>
+          </div>
+        </div>
+        <div class="plan-footer" id="planContext"></div>
+      </div>
+    </section>
+  </main>
+
+  <section class="card footer-card">
+    <h3>How the decision works</h3>
+    <p>
+      We score four strategies: Consumer Cloud, Local Storage, Hybrid, and Object Storage. Your
+      answers shape the scores, and we apply tie‑break rules for privacy and internet reliability.
+    </p>
+    <div class="chips">
+      <span class="chip">Cost sensitivity</span>
+      <span class="chip">Access patterns</span>
+      <span class="chip">Privacy & control</span>
+      <span class="chip">Internet reliability</span>
+      <span class="chip">Sharing needs</span>
+    </div>
+  </section>
+
+  <script src="app.js"></script>
+</body>
+</html>
